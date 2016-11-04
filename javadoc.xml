@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="." destdir="../HouseWORK/doc" doctitle="Lesson2" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" source="1.8" sourcefiles="src/lesson2/Task1.java" sourcepath="src" splitindex="true" use="true" version="true">
+            <link href="http://docs.oracle.com/javase/8/docs/api/"/>
+            <link href="file:/C:/Users/User/workspace/HouseWORK/doc/"/>
+        </javadoc>
+    </target>
+</project>
