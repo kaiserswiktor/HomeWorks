@@ -1,6 +1,6 @@
 package lesson2;
 
-public class Task1 {// класс выводящий количество символов в строке и длящий
+public class Task1 {// класс выводящий количество символов в строке и делящий
 					// строку пополам
 	public static void main(String args[]) {
 		String s = "Blackberry";

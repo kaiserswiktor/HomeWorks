@@ -4,7 +4,7 @@ public class Task2 {// класс который находит наименьш
 					// массива
 
 	public static void main(String[] args) {
-		int[] mass1 = { 55, 2, 66, 64, 44, 24, 23, 23, 24, 8 };
+		int[] mass1 = { 55, 2, 66, 64, 44, 24, 230, 23, 24, 8 };
 		int x = mass1[0];
 		int i;
 		for (i = 0; i < 9; i++) {
