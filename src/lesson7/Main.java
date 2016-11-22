@@ -143,6 +143,10 @@ public class Main {
 			System.out.println("Введено некоректное значение");
 		 }
 		 }
+	/**
+	 * write File
+	 * @param flower
+	 */
 		public  void write(ArrayList<Flowers> flower) {
 		   
 		    File file = new File("Infa.txt");
@@ -162,7 +166,12 @@ public class Main {
 		        throw new RuntimeException(e);
 		    }
 		}
-		
+		/**
+		 * Read File
+		 * @param fileName
+		 * @return
+		 * @throws FileNotFoundException
+		 */
 		public  String read(String fileName) throws FileNotFoundException {
 		    //Этот спец. объект для построения строки
 		    StringBuilder sb = new StringBuilder();
