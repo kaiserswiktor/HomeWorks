@@ -36,11 +36,11 @@ public class Rose extends GardenFlowers {
 		this.koluchki = koluchki;
 	}
 
-	public int getKoluchk() {
+	public int getKoluchki() {
 		return koluchki;
 	}
 
-	public void setKoluchki(int koluchk) {
-		this.koluchki = koluchk;
+	public void setKoluchki(int koluchki) {
+		this.koluchki = koluchki;
 	}
 }

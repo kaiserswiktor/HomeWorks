@@ -1,21 +1,26 @@
 package lesson7;
+
 import java.io.*;
 import java.util.*;
 
 /**
  * class vhoda v prilochenie
+ * 
  * @author User
  *
  */
-public class Main {
+public class Main  {
 
 	private static Scanner scanner;
-	static int y, x, z,c;
+	static int y, x, z, c;
+	static int u = 0;
+
+	static Main m = new Main();
 	
-	public static void main(String args[])throws MyException,Exception  {
+	//private ArrayList<Flowers> flower1;
+	public static void main(String args[]) throws MyException, Exception {
 
 		
-		int u = 0;
 
 		Rose rose1 = new Rose("Rosa Evropa", "red", 550, 3, 5, 5, 30, 1, 1);
 		Rose rose2 = new Rose("Rosa Azia", "white", 500, 4, 3, 6, 40, 1, 1);
@@ -34,9 +39,7 @@ public class Main {
 		CornFlower cornflower2 = new CornFlower("CornFlower", "blue", 300, 3, 2, 10, 6, 5, 1);
 		CornFlower cornflower3 = new CornFlower("CornFlower", "blue", 300, 2, 2, 10, 6, 5, 1);
 		CornFlower cornflower4 = new CornFlower("CornFlower", "blue", 300, 1, 2, 10, 6, 5, 1);
-		Aksesuar aksesuar1 = new Aksesuar("Bumaga", 3);
-		Aksesuar aksesuar2 = new Aksesuar("Lentochka", 2);
-		Aksesuar aksesuar3 = new Aksesuar("Blestki", 1);
+		
 		ArrayList<Flowers> flower = new ArrayList<Flowers>();
 		flower.add(rose1);
 		flower.add(rose2);
@@ -61,149 +64,152 @@ public class Main {
 		System.out.println("Провести выборку букета по свежести-введите:   4");
 		System.out.println("Записать информацию в файл:                    5");
 		System.out.println("Вывести  информацию из файла:                  6");
-		 
+
 		scanner = new Scanner(System.in);
 		x = scanner.nextInt();
-	
 
-		try{
-		if (x == 1) {
-			System.out.println("Добавить в букет оберточную бумагу-введите:            1");
-			System.out.println("Добавить в букет ленту-введите:                        2");
-			System.out.println("Добавить в букет блестки:                              3");
-			ArrayList<Object> floweraksesuar = new ArrayList<Object>();
-			y = scanner.nextInt();
-			if (y == 1) {
-				floweraksesuar.addAll(flower);
-				floweraksesuar.add(aksesuar1);
-	           System.out.println("Цена букета равна "+357+"руб");			
+		try {
+			if (x == 1) {
+			m.aksesuar(flower);}
+
+			else if (x == 2) {
+              m.cena(flower);
+			}
+			else if (x == 3) {
+				m.diapazon(flower);
+			
+			}
+			else if (x == 4) {
+				m.swechest(flower);
+				
+			}
+			else if (x == 5) {	
+				m.write(flower);
 
 			}
-			if (y == 2) {
-				floweraksesuar.addAll(flower);
-				floweraksesuar.add(aksesuar2);
-	           System.out.println("Цена букета равна "+356+"руб");			
+			else if (x == 6) {
+				
+				m.read(flower);
 
 			}
-			if (y == 3) {
-				floweraksesuar.addAll(flower);
-				floweraksesuar.add(aksesuar3);
-	           System.out.println("Цена букета равна "+355+"руб");			
+			else {
 
+				throw new MyException(x);
 			}
+		} catch (MyException x) {
+
+			System.out.println("Введено некоректное значение");
 		}
-
-		if (x == 2) {
-
+	}
+	public void swechest(ArrayList<Flowers> flower){
+		System.out.println("Введите уровень свежести в диапозоне от 0 до 5");
+		z = scanner.nextInt();
+		for (Flowers o : flower) {
+			if (o.swechest >= z) {
+				System.out.println(o.toString());
+			}
+		}	
+		
+	}
+	public void diapazon(ArrayList<Flowers> flower){
+		System.out.println("Введите введите нижнюю грань диапазона в мм  :");
+		c = scanner.nextInt();
+		System.out.println("Введите введите верхнюю грань диапазона в мм :");
+		z = scanner.nextInt();
+		for (Flowers o : flower) {
+			if (o.dlinnaSteblij > y & o.dlinnaSteblij < z) {
+				System.out.println(o.toString());
+			}
+		}	
+	}
+	public void aksesuar(ArrayList<Flowers> flower){
+		System.out.println("Добавить в букет оберточную бумагу-введите:            1");
+		System.out.println("Добавить в букет ленту-введите:                        2");
+		System.out.println("Добавить в букет блестки:                              3");
+		ArrayList<Aksesuar> floweraksesuar = new ArrayList<Aksesuar>();
+		Aksesuar aksesuar1 = new Aksesuar("Bumaga", 3);
+		Aksesuar aksesuar2 = new Aksesuar("Lentochka", 2);
+		Aksesuar aksesuar3 = new Aksesuar("Blestki", 1);
+		y = scanner.nextInt();
+		if (y == 1) {
+			
+			floweraksesuar.add(aksesuar1);
 			for (Flowers o : flower) {
 
 				u = u + o.getCena();
 			}
-			System.out.println("Цена букета равна " + u + "руб.");
+				int t=aksesuar1.getCenaaks();
+			u+=t;
+			
+			System.out.println("Цена букета равна " + u + "руб");
 
 		}
-		if (x == 3) {
-			System.out.println("Введите введите нижнюю грань диапазона в мм  :");
-			c = scanner.nextInt();
-			System.out.println("Введите введите верхнюю грань диапазона в мм :");
-			z = scanner.nextInt();
+		else if (y == 2) {
+			
+			floweraksesuar.add(aksesuar2);
 			for (Flowers o : flower) {
-				if (o.dlinnaSteblij > y & o.dlinnaSteblij < z) {
-					System.out.println(o.toString());
-				}
-			}
-		}
-		if (x == 4) {
-			System.out.println("Введите уровень свежести в диапозоне от 0 до 5");
-			z = scanner.nextInt();
-			for (Flowers o : flower) {
-				if (o.swechest >= z) {
-					System.out.println(o.toString());
-				}
-			}
-		}
-		if (x == 5) {
-			Main m=new Main();
-			m.write(flower);
-			
-			
-		}
-		if (x == 6) {
-			Main m=new Main();
-			m.read("Infa.txt");
-			
-			
-		}
-		if (x != 1&x != 2&x != 3&x != 4&x != 5&x != 6&y != 1&y != 2&y != 3){
 
-			throw new MyException(x);
-		 }}
-		 catch (MyException x  ){
-			
-			System.out.println("Введено некоректное значение");
-		 }
-		 }
-	/**
-	 * write File
-	 * @param flower
-	 */
-		public  void write(ArrayList<Flowers> flower) {
-		   
-		    File file = new File("Infa.txt");
-		    try {
-		        if(!file.exists()){
-		            file.createNewFile();
-		        }
-		        PrintWriter out = new PrintWriter(file.getAbsoluteFile());
-		 
-		        try {
-		            out.print(flower);
-		        } finally {
-		            
-		            out.close();
-		        }
-		    } catch(IOException e) {
-		        throw new RuntimeException(e);
-		    }
+				u = u + o.getCena();
+			}
+				int t=aksesuar2.getCenaaks();
+			u+=t;
+			System.out.println("Цена букета равна " + 356 + "руб");
+
 		}
-		/**
-		 * Read File
-		 * @param fileName
-		 * @return
-		 * @throws FileNotFoundException
-		 */
-		public  String read(String fileName) throws FileNotFoundException {
-		    //Этот спец. объект для построения строки
-		    StringBuilder sb = new StringBuilder();
-		 
-		    exists("Infa.txt");
-		 
-		    try {
+		else if (y == 3) {
+		
+			floweraksesuar.add(aksesuar3);
+			for (Flowers o : flower) {
+
+				u = u + o.getCena();
+			}
+				int t=aksesuar3.getCenaaks();
+			u+=t;
+			System.out.println("Цена букета равна " + 355 + "руб");
+
+		}
+	}	
 	
-		        BufferedReader in = new BufferedReader(new FileReader( ("Infa.txt")));
-		        try {
 
-		            String s;
-		            while ((s = in.readLine()) != null) {
-		                sb.append(s);
-		                sb.append("\n");
-		            }
-		        } finally {
-		            
-		            in.close();
-		        }
-		    } catch(IOException e) {
-		        throw new RuntimeException(e);
-		    }
-		    System.out.println(sb.toString());
-		    return sb.toString();
-		   
-		}
-		private static void exists(String string) {
-		
-			
-		}
+	
+	public void write(ArrayList<Flowers> flower) throws IOException {
+		try{	ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Infa.txt"));
+		        
+				out.writeObject(flower);
+				out.close();
 			}
+		catch(IOException ex){
+			ex.printStackTrace();
+		}
+		System.out.println("Обекты сериализированны:");}
+	
+	public void read(ArrayList<Flowers> flower) throws IOException {
+		 ArrayList<Flowers> newflowers = null;
+		try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Infa.txt"))){
+        	newflowers =(ArrayList<Flowers>)ois.readObject();
+        	ois.close();
+		}
+        catch(Exception ex){
+           
+            System.out.println(ex.getMessage());
+        } 
 		
+			System.out.println("Десериализированные обекты:"+newflowers);
+		}
+	
+	public void cena(ArrayList<Flowers> flower){
 
+		for (Flowers o : flower) {
+
+			u = u + o.getCena();
+		}
+		System.out.println("Цена букета равна " + u + "руб.");
+	
+	}
+
+	
+	
+			}
+
+		
 	

@@ -1,5 +1,7 @@
 package lesson7;
 
+import java.io.Serializable;
+
 /**
  * class Flowers jvljetsj roditelskim i soderchit polj i metodi
  * 
@@ -7,8 +9,12 @@ package lesson7;
  *
  */
 
-public class Flowers {
+public class Flowers implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int dlinnaSteblij;
 	int potrebnostVodi;
 	int swechest;
