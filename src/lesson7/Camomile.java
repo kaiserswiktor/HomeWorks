@@ -7,6 +7,8 @@ package lesson7;
  *
  */
 public class Camomile extends FieldsFlowers {
+
+	private static final long serialVersionUID = 1L;
 	int lekarstvo;
 
 	/**
@@ -22,12 +24,12 @@ public class Camomile extends FieldsFlowers {
 	 * @param listiev
 	 * @param lekarstvo
 	 */
-	public Camomile(String nazvanie, String color, int dlinnaSteblij, int potrebnostVodi, int swechest, int cena,
+	public Camomile(String nazvanie, String color, int dlinnaSteblij, int potrebnostVodi, int swechest, int price,
 			int lepestkow, int listiev, int lekarstvo) {
 		this.dlinnaSteblij = dlinnaSteblij;
 		this.potrebnostVodi = potrebnostVodi;
 		this.swechest = swechest;
-		this.cena = cena;
+		this.price = price;
 		this.nazvanie = nazvanie;
 		this.color = color;
 		this.lepestkow = lepestkow;

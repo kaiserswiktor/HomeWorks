@@ -1,23 +1,39 @@
 package lesson7;
 
+/**
+ * class keep fields and methods Aksesuar
+ * 
+ * @author User
+ *
+ */
 public class Aksesuar {
-	String name;
-	int cenaaks;
+	String name;// name accessories
+	int price;// price accessories
 
-	public Aksesuar(String name, int cenaaks) {
-		this.cenaaks = cenaaks;
+	/**
+	 * constructor  accessories
+	 * 
+	 * @param name
+	 * @param price
+	 */
+	public Aksesuar(String name, int price) {
+		this.price = price;
 		this.name = name;
 	}
-	public int getCenaaks() {
-		return cenaaks;
+
+	public int getPrice() {
+		return price;
 	}
+
 	public String getName() {
 		return name;
 	}
-	public void setCenaaks(int cenaaks){
-		this.cenaaks = cenaaks;
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
-	public void setName(String name){
+
+	public void setName(String name) {
 		this.name = name;
 	}
 }

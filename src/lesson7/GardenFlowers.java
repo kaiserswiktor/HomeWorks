@@ -7,21 +7,23 @@ package lesson7;
  *
  */
 public class GardenFlowers extends Flowers {
+
+	private static final long serialVersionUID = 1L;
 	int zapach;
 	int button;
 
 	/**
 	 * metod ukazivaet chto GardenFlowers wirastivaut
 	 */
-	public void wirastivaut() {
+	public void grow() {
 		return;
 	}
 
-	public int getzapach() {
+	public int getZapach() {
 		return zapach;
 	}
 
-	public int getbutton() {
+	public int getButton() {
 		return button;
 	}
 
@@ -31,5 +33,9 @@ public class GardenFlowers extends Flowers {
 
 	public void setButton(int button) {
 		this.button = button;
+	}
+
+	public int blossom(int potrebnostVodi) {
+		return 0;
 	}
 }

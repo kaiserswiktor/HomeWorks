@@ -7,6 +7,8 @@ package lesson7;
  *
  */
 public class Rose extends GardenFlowers {
+
+	private static final long serialVersionUID = 1L;
 	int koluchki;
 
 	/**
@@ -23,14 +25,14 @@ public class Rose extends GardenFlowers {
 	 * @param koluchki
 	 */
 
-	public Rose(String nazvanie, String color, int dlinnaSteblij, int potrebnostVodi, int swechest, int cena,
+	public Rose(String nazvanie, String color, int dlinnaSteblij, int potrebnostVodi, int swechest, int price,
 			int zapach, int button, int koluchki) {
 		this.nazvanie = nazvanie;
 		this.color = color;
 		this.dlinnaSteblij = dlinnaSteblij;
 		this.potrebnostVodi = potrebnostVodi;
 		this.swechest = swechest;
-		this.cena = cena;
+		this.price = price;
 		this.zapach = zapach;
 		this.button = button;
 		this.koluchki = koluchki;

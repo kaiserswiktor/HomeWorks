@@ -10,15 +10,11 @@ import java.io.Serializable;
  */
 
 public class Flowers implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 	int dlinnaSteblij;
 	int potrebnostVodi;
 	int swechest;
-	int cena;
+	int price;
 	String nazvanie;
 	String color;
 
@@ -38,7 +34,7 @@ public class Flowers implements Serializable {
 	 * @param potrebnostVodi
 	 * @return
 	 */
-	public int Cvesti(int potrebnostVodi) {
+	public int blossom(int potrebnostVodi) {
 		return (potrebnostVodi);
 	}
 
@@ -62,8 +58,8 @@ public class Flowers implements Serializable {
 		return swechest;
 	}
 
-	public int getCena() {
-		return cena;
+	public int getPrice() {
+		return price;
 	}
 
 	public void setNazvanie(String nazvanie) {
@@ -86,8 +82,8 @@ public class Flowers implements Serializable {
 		this.swechest = swechest;
 	}
 
-	public void setCena(int cena) {
-		this.cena = cena;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
 	/**
@@ -95,7 +91,7 @@ public class Flowers implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Name-" + nazvanie + " Color-" + color;
+		return "Name-" + nazvanie + " Color-" + color+"Long"+dlinnaSteblij;
 	}
 
 }

@@ -7,13 +7,15 @@ package lesson7;
  *
  */
 public class FieldsFlowers extends Flowers {
+	
+	private static final long serialVersionUID = 1L;
 	int lepestkow;
 	int listiev;
 
 	/**
 	 * metod ukazivaet chto FieldsFlowers sobirat
 	 */
-	public void sobirat() {
+	public void collect() {
 		return;
 
 	}
