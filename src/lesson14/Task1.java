@@ -1,9 +1,13 @@
 package lesson14;
 
+import java.util.Scanner;
+
 public class Task1 extends Thread {
+	
 	String threadname;
 	Thread thread;
-
+	private static Scanner scanner;
+     
 	Task1(String threadname) {
 		this.threadname = threadname;
 		thread = new Thread(this, threadname);
@@ -25,9 +29,23 @@ public class Task1 extends Thread {
 	}
 
 	public static void main(String args[]) throws InterruptedException {
+		String start;
+          String s1 ;
+          s1="start";
+          while(true){
+          System.out.println("Введите слова -stаrt-для начала " );
+		scanner = new Scanner(System.in);
+		start = scanner.nextLine();
+		
+		
+		if(start.equals(s1)){
 		new Task1("Thread1");
 
 		new Task1("Thread2");
-
+		}
+		else{
+			System.out.println("неправильно введено слово -stаrt- введите корректно" );	
+		}
+	}
 	}
 }
