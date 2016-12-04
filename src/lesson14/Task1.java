@@ -44,7 +44,7 @@ public class Task1 extends Thread {
 		new Task1("Thread2");
 		}
 		else{
-			System.out.println("неправильно введено слово -stаrt- введите корректно" );	
+			System.out.println("неправильно введено слово -stаrt" );	
 		}
 	}
 	}
