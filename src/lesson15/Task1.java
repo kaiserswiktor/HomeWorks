@@ -9,7 +9,7 @@ import java.util.concurrent.*;
 public class Task1 {
 	public static void main(String args[]) {//две кассы
          System.out.println("Магазин открылся");
-		ExecutorService es = Executors.newFixedThreadPool(2);
+		ExecutorService es = Executors.newFixedThreadPool(1);
 		es.execute(new BuyerThread("Buyer1"));
 		es.execute(new BuyerThread("Buyer2"));
 		es.execute(new BuyerThread("Buyer3"));
