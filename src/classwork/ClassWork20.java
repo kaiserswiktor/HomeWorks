@@ -36,13 +36,15 @@ public class ClassWork20 {
 		NodeList nList = root.getChildNodes();
 		
 		for (int i = 0; i < nList.getLength(); i++) {
+			System.out.println();
 			if (nList.item(i) instanceof Element) {
-				System.out.println(nList.item(i).getNodeName());
+				
+				System.out.print(nList.item(i).getNodeName()+":");
 				NodeList attributes = ((Element)nList.item(i)).getChildNodes();
 				for (int k = 0; k < attributes.getLength(); k++) {
-					System.out.println(attributes.item(k).getNodeName());
-					String name="1";
-					System.out.println(attributes.item(k).getAttributes().getNamedItem(name));
+					System.out.print(attributes.item(k).getNodeName());
+					
+					System.out.print(attributes.item(k).getFirstChild().getNodeValue()+(attributes.item(2).getFirstChild().getNodeValue())+",");
 				}
 			}
 		}
