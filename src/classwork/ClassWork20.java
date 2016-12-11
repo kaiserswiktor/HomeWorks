@@ -42,9 +42,11 @@ public class ClassWork20 {
 				System.out.print(nList.item(i).getNodeName()+":");
 				NodeList attributes = ((Element)nList.item(i)).getChildNodes();
 				for (int k = 0; k < attributes.getLength(); k++) {
+					if(k<2){
 					System.out.print(attributes.item(k).getNodeName());
 					
-					System.out.print(attributes.item(k).getFirstChild().getNodeValue()+(attributes.item(2).getFirstChild().getNodeValue())+",");
+					System.out.print(attributes.item(k).getFirstChild().getNodeValue());
+					System.out.print(attributes.item(2).getFirstChild().getNodeValue()+".");}
 				}
 			}
 		}
