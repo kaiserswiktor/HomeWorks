@@ -1,6 +1,8 @@
 package lesson7;
-
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.io.*;
+import java.text.DateFormat;
 import java.util.*;
 
 /**
@@ -10,11 +12,25 @@ import java.util.*;
  * 
  */
 public class Main {
+		
+	 static  Locale locale1 = new Locale("ru","RU") ;
+	 static  Locale locale2 = new Locale("en","EN");
+      static  Locale current = locale1;	
+		
+	static  ResourceBundle rb = ResourceBundle.getBundle("resource.MessageBundle", current);
+
 
 	private static Scanner scanner;// variable class Scanner
+
 	
+	
+
 	public static void main(String args[]) throws MyException, Exception {
 		int scannerForMain;// variable
+		 Date currentDate = new Date();
+		 DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, current);
+	   
+		Main m= new Main();
 		Rose rose1 = new Rose("Rosa Evropa", "red", 550, 3, 5, 5, 30, 1, 1);
 		Rose rose2 = new Rose("Rosa Azia", "white", 500, 4, 3, 6, 40, 1, 1);
 		Rose rose3 = new Rose("Rosa Afrika", "black", 580, 2, 1, 3, 10, 1, 0);
@@ -49,14 +65,16 @@ public class Main {
 		flower.add(cornflower1);
 		flower.add(cornflower2);
 		flower.add(cornflower3);
-		flower.add(cornflower4);	
-		System.out.println("Добавить в букет аксессуар-введите:            1");
-		System.out.println("Узнать цену букета-введите :                   2");
-		System.out.println("Провести выборку букета по длинне -введите:    3");
-		System.out.println("Провести выборку букета по свежести-введите:   4");
-		System.out.println("Записать информацию в файл:                    5");
-		System.out.println("Вывести  информацию из файла:                  6");
-		System.out.println("Выход из файла:                                7");
+		flower.add(cornflower4);
+		System.out.println(df.format(currentDate));
+		System.out.println(rb.getString("s1"));
+		System.out.println(rb.getString("s2"));
+		System.out.println(rb.getString("s3"));
+		System.out.println(rb.getString("s4"));
+		System.out.println(rb.getString("s5"));
+		System.out.println(rb.getString("s6"));
+		System.out.println(rb.getString("s7"));
+		System.out.println(rb.getString("s17"));
 		scanner = new Scanner(System.in);
 		
       while(true){
@@ -64,33 +82,37 @@ public class Main {
 		try {
 			
 			if (scannerForMain == 1) {
-				aksesuar(flower);
+				m.aksesuar(flower);
 			
 				
 			} else if (scannerForMain == 2) {
-				cena(flower);
+				m.cena(flower);
 				
 				
 
 			} else if (scannerForMain == 3) {
-				diapazon(flower);
+				m.diapazon(flower);
 			
 				
 			} else if (scannerForMain == 4) {
-				swechest(flower);
+				m.swechest(flower);
 				
 				}
 			else if (scannerForMain == 5) {
-				write(flower);
+				m.write(flower);
 				
 			} else if (scannerForMain == 6) {
 
-				read(flower);
+				m.read(flower);
 				
 
-			} else if (scannerForMain == 7) {
+			} else if (scannerForMain == 8) {
 				 return;
+			} else if(scannerForMain == 7){
+				m.i18n();
+				Main.main(args);
 			}
+			
 
 		
 				throw new MyException(scannerForMain);
@@ -106,11 +128,32 @@ public class Main {
 	 * selection by freshness
 	 * 
 	 * @param flower
+	 * @throws Exception 
+	 * @throws MyException 
 	 */
 
-	public static void swechest(ArrayList<Flowers> flower) {
+	
+	
+	public void i18n() throws MyException, Exception{
+	
+		int scanneri18n;
+		System.out.println(rb.getString("s18"));
+		System.out.println(rb.getString("s19"));
+		scanneri18n = scanner.nextInt();
+		if (scanneri18n == 1) {
+			current=locale1;
+	  rb = ResourceBundle.getBundle("resource.MessageBundle", locale1);	
+		}
+		else if(scanneri18n == 2){
+			current=locale2;
+	  rb = ResourceBundle.getBundle("resource.MessageBundle", locale2);
+		}
+	}
+	
+	public  void swechest(ArrayList<Flowers> flower) {
+			
 		int Scannerforswechtes;
-		System.out.println("Введите уровень свежести в диапозоне от 0 до 5");
+		System.out.println(rb.getString("s8"));
 		Scannerforswechtes = scanner.nextInt();
 		for (Flowers o : flower) {
 			if (o.swechest >= Scannerforswechtes) {
@@ -124,11 +167,11 @@ public class Main {
 	 * 
 	 * @param flower
 	 */
-	public static void diapazon(ArrayList<Flowers> flower) {
+	public  void diapazon(ArrayList<Flowers> flower) {
 		int variableScannerfordowndlinnaSteblij, variableScannerforhighdlinnaSteblij;
-		System.out.println("Введите введите нижнюю грань диапазона в мм  :");
+		System.out.println(rb.getString("s9"));
 		variableScannerfordowndlinnaSteblij = scanner.nextInt();
-		System.out.println("Введите введите верхнюю грань диапазона в мм :");
+		System.out.println(rb.getString("s10"));
 		variableScannerforhighdlinnaSteblij = scanner.nextInt();
 		for (Flowers o : flower) {
 			if (o.dlinnaSteblij > variableScannerfordowndlinnaSteblij
@@ -143,12 +186,12 @@ public class Main {
 	 * 
 	 * @param flower
 	 */
-	public static void aksesuar(ArrayList<Flowers> flower) {
+	public  void aksesuar(ArrayList<Flowers> flower) {
 		int Scannerforaksesuar;
 		int firstprice = 0;
-		System.out.println("Добавить в букет оберточную бумагу-введите:            1");
-		System.out.println("Добавить в букет ленту-введите:                        2");
-		System.out.println("Добавить в букет блестки:                              3");
+		System.out.println(rb.getString("s11"));
+		System.out.println(rb.getString("s12"));
+		System.out.println(rb.getString("s13"));
 		ArrayList<Aksesuar> floweraksesuar = new ArrayList<Aksesuar>();
 		Aksesuar aksesuar1 = new Aksesuar("Bumaga", 3);
 		Aksesuar aksesuar2 = new Aksesuar("Lentochka", 2);
@@ -164,7 +207,7 @@ public class Main {
 			int t = aksesuar1.getPrice();
 			firstprice += t;
 
-			System.out.println("Цена букета равна " + firstprice + "руб");
+			System.out.println(rb.getString("s14") + firstprice + "������");
 
 		} else if (Scannerforaksesuar == 2) {
 
@@ -175,7 +218,7 @@ public class Main {
 			}
 			int t = aksesuar2.getPrice();
 			firstprice += t;
-			System.out.println("Цена букета равна " + firstprice + "руб");
+			System.out.println(rb.getString("s14") + firstprice + "������");
 
 		} else if (Scannerforaksesuar == 3) {
 
@@ -186,7 +229,7 @@ public class Main {
 			}
 			int t = aksesuar3.getPrice();
 			firstprice += t;
-			System.out.println("Цена букета равна " + firstprice + "руб");
+			System.out.println(rb.getString("s14") + firstprice + "������");
 
 		}
 	}
@@ -197,7 +240,7 @@ public class Main {
 	 * @param flower
 	 * @throws IOException
 	 */
-	public static void write(ArrayList<Flowers> flower) throws IOException {
+	public  void write(ArrayList<Flowers> flower) throws IOException {
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Infa.txt"));
 
@@ -206,7 +249,7 @@ public class Main {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
-		System.out.println("Обекты сериализированны:");
+		System.out.println(rb.getString("s15"));
 	}
 
 	/**
@@ -215,7 +258,7 @@ public class Main {
 	 * @param flower
 	 * @throws IOException
 	 */
-	public static void read(ArrayList<Flowers> flower) throws IOException {
+	public  void read(ArrayList<Flowers> flower) throws IOException {
 		ArrayList<Flowers> newflowerslist = null;
 		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Infa.txt"))) {
 			newflowerslist = (ArrayList<Flowers>) ois.readObject();
@@ -225,7 +268,7 @@ public class Main {
 			System.out.println(ex.getMessage());
 		}
 
-		System.out.println("Десериализированные обекты:" + newflowerslist);
+		System.out.println(rb.getString("s16") + newflowerslist);
 	}
 
 	/**
@@ -233,13 +276,13 @@ public class Main {
 	 * 
 	 * @param flower
 	 */
-	public static void cena(ArrayList<Flowers> flower) {
+	public  void cena(ArrayList<Flowers> flower) {
 		int firstprice = 0;
 		for (Flowers o : flower) {
 
 			firstprice = firstprice + o.getPrice();
 		}
-		System.out.println("Цена букета равна " + firstprice + "руб.");
+		System.out.println(rb.getString("s16") + firstprice + "������.");
 
 	}
 
