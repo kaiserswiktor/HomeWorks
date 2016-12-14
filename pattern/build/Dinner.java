@@ -1,4 +1,4 @@
-package lesson18;
+package build;
 
 public class Dinner {
 	private String first;

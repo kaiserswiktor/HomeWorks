@@ -1,4 +1,4 @@
-package lesson18;
+package build;
 
 public abstract class Builder {
 	protected Dinner dinner = new Dinner();

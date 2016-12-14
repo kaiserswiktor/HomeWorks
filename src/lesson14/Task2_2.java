@@ -28,7 +28,6 @@ public class Task2_2 extends Thread {
 			sem.acquire();
 			
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         try {
@@ -38,7 +37,12 @@ public class Task2_2 extends Thread {
 			e.printStackTrace();
 		}
 			sem.release();
-		
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			}	
 			
 	}
