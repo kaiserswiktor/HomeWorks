@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Greenhouse><plants><Name>rose</Name><Soil> grunt</Soil><Origin>Asia</Origin><VisualParameters><color>red</color><colorSt>green</colorSt><grow>20</grow></VisualParameters><GrowTips><t>15</t><water>250</water></GrowTips><Multiplying>cherenok</Multiplying></plants>
+<plants><Name>rose</Name><Soil> grunt</Soil><Origin>Asia</Origin><VisualParameters><color>red</color><colorSt>green</colorSt><grow>10</grow></VisualParameters><GrowTips><t>25</t><water>150</water></GrowTips><Multiplying>cherenok</Multiplying></plants></Greenhouse>

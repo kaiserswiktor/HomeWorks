@@ -21,7 +21,7 @@ public class ClassWork20 {
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		}
-		File f = new File("1.xml");
+		File f = new File("src/classwork/1.xml");
 		try {
 			doc = builder.parse(f);
 		} catch (SAXException e) {
@@ -43,8 +43,7 @@ public class ClassWork20 {
 				NodeList attributes = ((Element)nList.item(i)).getChildNodes();
 				for (int k = 0; k < attributes.getLength(); k++) {
 					if(k<2){
-					System.out.print(attributes.item(k).getNodeName());
-					
+					System.out.print(attributes.item(k).getNodeName());			
 					System.out.print(attributes.item(k).getFirstChild().getNodeValue());
 					System.out.print(attributes.item(2).getFirstChild().getNodeValue()+".");}
 				}

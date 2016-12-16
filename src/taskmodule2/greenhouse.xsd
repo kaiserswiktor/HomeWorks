@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Greenhouse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="plants" maxOccurs="200">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Name" type="xs:string" />
+							<xs:element name="Soil" type="xs:string" />
+							<xs:element name="Origin" type="xs:string" />
+							<xs:element name="VisualParameters" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="color" type="xs:string"/>
+											<xs:element name="colorSt" type="xs:string" />
+											<xs:element name="grow">
+												<xs:simpleType>
+													<xs:restriction base="xs:integer">
+														<xs:minInclusive value="10" />
+														<xs:maxInclusive value="100" />
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>			
+					<xs:element name="GrowTips" maxOccurs="1">
+						<xs:complexType>
+						<xs:sequence>
+							<xs:element name="t">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minInclusive value="2" />
+										<xs:maxInclusive value="100" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="water">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minInclusive value="0" />
+										<xs:maxInclusive value="1000" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Multiplying">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="cherenok" />
+								<xs:enumeration value="semena" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					</xs:sequence>
+					</xs:complexType>				
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
